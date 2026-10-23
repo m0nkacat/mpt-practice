@@ -15,6 +15,14 @@
 | `devops` | Flask-приложение с JSON-эндпоинтом, тест через `test_client`, столбчатая диаграмма HTTP-запросов (Seaborn) | `app.py`, `test_app.py`, `visualization.py` |
 | `weather_api` | Запрос погоды через OpenWeather API: обработка ошибок 401 и 404, таймаута и ошибок сети, вывод температуры, влажности и ветра | `weather_app.py` |
 
+### Командная практика: [short-higurashi-whentheycry-ch1](https://github.com/sdformeky/short-higurashi-whentheycry-ch1)
+- Консольная текстовая игра по первой главе Higurashi no Naku Koro ni, сделана в команде
+- Сюжет со сценами и выбором действий, свой саундтрек для каждой локации (`pygame.mixer`)
+- Механики: инвентарь, здоровье и лечение, атака
+- Мини-игры: блэкджек против персонажей и фестивальная игра на кубике d20
+- Сборка в `.exe` через PyInstaller (`higurashi.spec`)
+- Код лежит в отдельном репозитории (ссылка в заголовке)
+
 **Запуск:** `python <файл>.py`, тесты — `pytest`.
 - Зависимости: `pillow` для `image_processing`, `flask`, `seaborn` и `matplotlib` для `devops`, `requests` для `weather_api`.
 - Для `weather_api` нужна переменная `OPENWEATHER_API_KEY`.
@@ -35,6 +43,12 @@
 | `socket_server` | Multi-user chat: thread per client, broadcast, `threading.Lock`; client with separate receive / send threads |
 | `devops` | Flask JSON endpoint, `test_client` test, Seaborn bar chart of HTTP requests |
 | `weather_api` | OpenWeather API client handling 401, 404, timeouts and network errors |
+
+**Team assignment: [short-higurashi-whentheycry-ch1](https://github.com/sdformeky/short-higurashi-whentheycry-ch1)**: a console text game based on chapter 1 of Higurashi no Naku Koro ni.
+- Scenes with player choices and per-location music via `pygame.mixer`.
+- Mechanics: inventory, health and healing, attacks.
+- Mini-games: blackjack against characters and a d20 festival game.
+- Packaged as an `.exe` with PyInstaller.
 
 **Run:** `python <file>.py`, tests with `pytest`.
 - Dependencies: `pillow` for `image_processing`; `flask`, `seaborn` and `matplotlib` for `devops`; `requests` for `weather_api`.

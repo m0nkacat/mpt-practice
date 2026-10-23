@@ -35,6 +35,7 @@
 | `python/socket_server` | Многопользовательский чат на сокетах и потоках |
 | `python/devops` | Flask-приложение, тест, график запросов на Seaborn |
 | `python/weather_api` | Погода через OpenWeather API с обработкой ошибок |
+| [short-higurashi-whentheycry-ch1](https://github.com/sdformeky/short-higurashi-whentheycry-ch1) | Командная практика: текстовая игра по Higurashi с музыкой, инвентарём и мини-играми |
 | **[Dart](dart)** | |
 | `dart/qa_app2` | Q&A в консоли: бинарный формат хранения, бэкап, логирование в изоляте, отчёт |
 | `dart/dart_bd` | Q&A на SQLite: слои domain/data/cli, репозитории, валидаторы, тесты |
@@ -86,6 +87,7 @@ College coursework. Each subject folder has its own README with details on every
 | `python/socket_server` | Multi-user chat on sockets and threads |
 | `python/devops` | Flask app, a test, request stats chart with Seaborn |
 | `python/weather_api` | Weather via OpenWeather API with error handling |
+| [short-higurashi-whentheycry-ch1](https://github.com/sdformeky/short-higurashi-whentheycry-ch1) | Team assignment: Higurashi-based text game with music, inventory and mini-games |
 | **[Dart](dart)** | |
 | `dart/qa_app2` | Console Q&A: binary storage format, backup, isolate-based logging, report |
 | `dart/dart_bd` | Q&A on SQLite: domain / data / cli layers, repositories, validators, tests |

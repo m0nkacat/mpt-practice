@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5d18d6d1d7f647da8b2bc20b9fdce40a" Name="Diagram1">
+        <EntityTypeShape EntityType="WpfShopDBModel.CartItems" Width="1.5" PointX="7.5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WpfShopDBModel.Carts" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WpfShopDBModel.Categories" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WpfShopDBModel.OrderItems" Width="1.5" PointX="7.5" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WpfShopDBModel.Orders" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="WpfShopDBModel.Products" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="WpfShopDBModel.Roles" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WpfShopDBModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WpfShopDBModel.Users" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <AssociationConnector Association="WpfShopDBModel.FK__CartItems__cart___440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="WpfShopDBModel.FK__CartItems__produ__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="WpfShopDBModel.FK__Carts__user_id__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="WpfShopDBModel.FK__Products__catego__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="WpfShopDBModel.FK__OrderItem__order__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="WpfShopDBModel.FK__OrderItem__produ__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="WpfShopDBModel.FK__Orders__user_id__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="WpfShopDBModel.FK__Users__role_id__398D8EEE" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

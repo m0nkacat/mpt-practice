@@ -1,0 +1,75 @@
+const DEFAULT_POSTS = [
+  {
+    id: 'post1',
+    content: 'Искусственный интеллект помогает врачам ставить диагнозы #технологии #наука',
+    tags: ['технологии', 'наука'],
+    likes: 5,
+    comments: [],
+    showToAll: false
+  },
+  {
+    id: 'post2',
+    content: 'Новый способ очистки океана от пластика #экология #технологии',
+    tags: ['экология', 'технологии'],
+    likes: 8,
+    comments: [],
+    showToAll: false
+  },
+  {
+    id: 'post3',
+    content: 'Почему спортсмены переходят на веганское питание? #спорт #еда',
+    tags: ['спорт', 'еда'],
+    likes: 3,
+    comments: [],
+    showToAll: false
+  },
+  {
+    id: 'post_neutral1',
+    content: 'Что думаете о последних событиях? (пост без тегов)',
+    tags: [],
+    likes: 0,
+    comments: [],
+    showToAll: true
+  }
+];
+
+const AVAILABLE_TAGS = [
+  'технологии', 'экология', 'спорт', 'политика', 'игры',
+  'музыка', 'кино', 'наука', 'еда', 'путешествия'
+];
+
+function storageAvailable() {
+  try {
+    const test = '__storage_test__';
+    localStorage.setItem(test, test);
+    localStorage.removeItem(test);
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+function loadFromStorage(key) {
+  if (!storageAvailable()) return null;
+  const data = localStorage.getItem(key);
+  return data ? JSON.parse(data) : null;
+}
+
+function saveToStorage(key, data) {
+  if (!storageAvailable()) return false;
+  try {
+    localStorage.setItem(key, JSON.stringify(data));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+function initStorage() {
+  if (!storageAvailable()) {
+    alert('localStorage недоступен. Разрешите хранение данных в браузере.');
+    return;
+  }
+  if (!loadFromStorage('posts')) saveToStorage('posts', DEFAULT_POSTS);
+  if (!loadFromStorage('tags')) saveToStorage('tags', AVAILABLE_TAGS);
+}

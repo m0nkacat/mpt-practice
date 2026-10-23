@@ -1,0 +1,23 @@
+# .NET
+bin/
+!dart/**/bin/
+obj/
+.vs/
+*.user
+packages/
+# Java
+target/
+out/
+.idea/
+*.iml
+# Python
+__pycache__/
+.venv/
+venv/
+.pytest_cache/
+.ipynb_checkpoints/
+# Node / env
+node_modules/
+.env
+# Dart
+.dart_tool/

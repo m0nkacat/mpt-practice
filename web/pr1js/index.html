@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>статус задачи</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>СТАТУС НАСКОЛЬКО ВЫПОЛНЕНЕНА ЗАДАЧА</h1>
+    <h2>на доступном языке для всех поколений</h2>
+</header>
+
+<main>
+    <p class="desc">После выполененения всех задач можно в хаммамммммм</p>
+
+    <div class="form-row">
+        <input id="taskTitle" placeholder="Название задачи">
+        <button id="addBtn">ДОБАВИТЬ</button>
+    </div>
+
+    <div class="filter-row">
+        <input id="filterInput" placeholder="Фильтр по названию...">
+    </div>
+
+    <div class="counter-row">
+        Всего задач: <span id="taskCounter">0</span>
+    </div>
+
+    <div id="notification" class="notification"></div>
+
+    <div class="board" id="board"></div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

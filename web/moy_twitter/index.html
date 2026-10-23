@@ -1,0 +1,100 @@
+<!-- Начало HTML-документа -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"> <!-- Устанавливаем кодировку UTF-8 -->
+  <title>Информационный пузырь</title> <!-- Заголовок вкладки браузера -->
+  <link rel="stylesheet" href="style.css"> <!-- Подключаем файл стилей -->
+</head>
+<body>
+  <div id="app"> <!-- Корневой контейнер приложения -->
+    
+    <div id="login-screen" class="screen active"> <!-- Экран входа (активен по умолчанию) -->
+      <h1>Вход в пузырь</h1> <!-- Заголовок -->
+      <form id="login-form"> <!-- Форма входа -->
+        <div class="username-row">
+          <input type="text" id="login-username" placeholder="Логин" required> <!-- Поле ввода логина -->
+        </div>
+        <div class="username-row">
+          <input type="password" id="login-password" placeholder="Пароль" required> <!-- Поле ввода пароля -->
+        </div>
+        <button type="submit">Войти</button> <!-- Кнопка отправки формы -->
+        <button type="button" id="go-register-btn" class="small-btn">Создать аккаунт</button> <!-- Кнопка перехода к регистрации -->
+      </form>
+    </div>
+
+    <div id="registration-screen" class="screen"> <!-- Экран регистрации (скрыт) -->
+      <h1>Создайте свой пузырь</h1> <!-- Заголовок -->
+      <form id="reg-form"> <!-- Форма регистрации -->
+        <div class="username-row">
+          <input type="text" id="reg-username" placeholder="Логин" required> <!-- Поле ввода логина -->
+        </div>
+        <div class="username-row">
+          <input type="password" id="reg-password" placeholder="Пароль" required> <!-- Поле ввода пароля -->
+        </div>
+        <p>Выберите минимум 3 интересующие вас темы:</p> <!-- Инструкция -->
+        <div class="interests-grid"> <!-- Сетка чекбоксов с интересами -->
+          <label><input type="checkbox" value="технологии"> #технологии</label> <!-- Чекбокс "технологии" -->
+          <label><input type="checkbox" value="экология"> #экология</label> <!-- Чекбокс "экология" -->
+          <label><input type="checkbox" value="спорт"> #спорт</label> <!-- Чекбокс "спорт" -->
+          <label><input type="checkbox" value="политика"> #политика</label> <!-- Чекбокс "политика" -->
+          <label><input type="checkbox" value="игры"> #игры</label> <!-- Чекбокс "игры" -->
+          <label><input type="checkbox" value="музыка"> #музыка</label> <!-- Чекбокс "музыка" -->
+          <label><input type="checkbox" value="кино"> #кино</label> <!-- Чекбокс "кино" -->
+          <label><input type="checkbox" value="наука"> #наука</label> <!-- Чекбокс "наука" -->
+          <label><input type="checkbox" value="еда"> #еда</label> <!-- Чекбокс "еда" -->
+          <label><input type="checkbox" value="путешествия"> #путешествия</label> <!-- Чекбокс "путешествия" -->
+        </div>
+        <button type="submit" id="start-btn">Создать и войти</button> <!-- Кнопка отправки формы регистрации -->
+        <button type="button" id="go-login-btn" class="small-btn">Назад к входу</button> <!-- Кнопка возврата на экран входа -->
+      </form>
+    </div>
+
+
+    <div id="feed-screen" class="screen"> <!-- Экран ленты (скрыт) -->
+      <header>
+        <h2>🐦 Симулятор ленты</h2> <!-- Заголовок страницы -->
+        <div id="bubble-indicator"> <!-- Блок индикатора пузыря -->
+          <span>Пузырь:</span> <!-- Подпись -->
+          <div id="bubble-bar-container"> <!-- Контейнер полоски пузыря -->
+            <div id="bubble-bar" style="width: 0%"></div> <!-- Сама полоска (начальная ширина 0%) -->
+          </div>
+          <span id="bubble-percent">0%</span> <!-- Процент совпадений -->
+          <span id="bubble-hidden-count"></span> <!-- Количество скрытых постов -->
+        </div>
+        <button id="burst-btn" class="small-btn burst-btn">Разорвать пузырь</button> <!-- Кнопка разрыва пузыря -->
+        <button id="compare-btn" class="small-btn">Сравнить</button> <!-- Кнопка сравнения пользователей -->
+        <button id="logout-btn" class="small-btn">Выйти</button> <!-- Кнопка выхода -->
+        <button id="load-json-btn" class="small-btn">📂 Загрузить JSON</button> <!-- Кнопка загрузки JSON -->
+        <input type="file" id="json-file-input" accept=".json" hidden> <!-- Скрытое поле выбора файла JSON -->
+        <button id="add-neutral-btn" class="small-btn">+ Нейтральный пост</button> <!-- Кнопка добавления нейтрального поста -->
+      </header>
+      <main id="feed-container"></main> <!-- Контейнер для постов -->
+    </div>
+
+    <div id="compare-modal" class="modal-overlay"> <!-- Оверлей модального окна -->
+      <div class="modal-content"> <!-- Контент модального окна -->
+        <span class="close-modal">&times;</span> <!-- Крестик закрытия -->
+        <h3>Сравнение пользователей</h3> <!-- Заголовок модального окна -->
+        <div id="compare-select"> <!-- Блок выбора пользователя для сравнения -->
+          <p>Выберите пользователя для сравнения с <strong id="current-user-name"></strong>:</p>
+          <select id="compare-user-select"></select> <!-- Выпадающий список других пользователей -->
+          <button id="run-compare-btn">Сравнить</button> <!-- Кнопка запуска сравнения -->
+        </div>
+        <div id="compare-results" style="display:none;"> <!-- Блок результатов сравнения (изначально скрыт) -->
+          <h4>Интересы</h4>
+          <table id="compare-interests-table"> <!-- Таблица интересов -->
+            <thead><tr><th>Тег</th><th id="user1-col">Пользователь 1</th><th id="user2-col">Пользователь 2</th></tr></thead>
+            <tbody></tbody>
+          </table>
+          <p id="interests-overlap"></p> <!-- Вывод процента пересечения интересов -->
+          <h4>Ленты (топ-10 рекомендаций)</h4>
+          <div id="compare-feeds" style="display:flex; gap:20px;"></div> <!-- Контейнер сравнения лент -->
+          <p id="feeds-overlap"></p> <!-- Вывод пересечения лент -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="app.js"></script> <!-- Подключаем файл с логикой -->
+</body>
+</html>

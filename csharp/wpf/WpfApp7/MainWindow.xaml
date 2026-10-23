@@ -1,0 +1,112 @@
+﻿<Window x:Class="WpfApp7.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Блокнот" Height="600" Width="900" MinHeight="400" MinWidth="600">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Создать" Click="NewFile_Click"/>
+                <MenuItem Header="Открыть..." Click="OpenFile_Click"/>
+                <Separator/>
+                <MenuItem Header="Сохранить" Click="SaveFile_Click"/>
+                <MenuItem Header="Сохранить как..." Click="SaveAsFile_Click"/>
+                <Separator/>
+                <MenuItem Header="Печать..." Click="PrintFile_Click"/>
+                <Separator/>
+                <MenuItem Header="Выход" Click="Exit_Click"/>
+            </MenuItem>
+            <MenuItem Header="Правка">
+                <MenuItem Header="Отменить" Click="Undo_Click"/>
+                <MenuItem Header="Повторить" Click="Redo_Click"/>
+                <Separator/>
+                <MenuItem Header="Вырезать" Click="Cut_Click"/>
+                <MenuItem Header="Копировать" Click="Copy_Click"/>
+                <MenuItem Header="Вставить" Click="Paste_Click"/>
+                <MenuItem Header="Удалить" Click="Delete_Click"/>
+                <Separator/>
+                <MenuItem Header="Найти" Click="ShowFindPanel_Click"/>
+                <MenuItem Header="Заменить" Click="ShowReplacePanel_Click"/>
+                <Separator/>
+                <MenuItem Header="Выделить всё" Click="SelectAll_Click"/>
+            </MenuItem>
+            <MenuItem Header="Формат">
+                <MenuItem Header="Перенос по словам" IsCheckable="True" IsChecked="True" Click="WordWrap_Click"/>
+                <Separator/>
+                <MenuItem Header="Увеличить шрифт" Click="IncreaseFont_Click"/>
+                <MenuItem Header="Уменьшить шрифт" Click="DecreaseFont_Click"/>
+            </MenuItem>
+            <MenuItem Header="Справка">
+                <MenuItem Header="О программе" Click="About_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <Border x:Name="StatsPanel" DockPanel.Dock="Top" Background="#F0F0F0" Padding="8" Margin="0,2,0,2">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <TextBlock Text="Символов:" Margin="5,0"/>
+                <TextBlock x:Name="StatsChars" Text="0" Width="40" TextAlignment="Right" Margin="0,0,10,0"/>
+                <TextBlock Text="Без пробелов:" Margin="5,0"/>
+                <TextBlock x:Name="StatsCharsNoSpace" Text="0" Width="40" TextAlignment="Right" Margin="0,0,10,0"/>
+                <TextBlock Text="Слов:" Margin="5,0"/>
+                <TextBlock x:Name="StatsWords" Text="0" Width="40" TextAlignment="Right" Margin="0,0,10,0"/>
+                <TextBlock Text="Строк:" Margin="5,0"/>
+                <TextBlock x:Name="StatsLines" Text="0" Width="40" TextAlignment="Right" Margin="0,0,10,0"/>
+                <TextBlock Text="Абзацев:" Margin="5,0"/>
+                <TextBlock x:Name="StatsParagraphs" Text="0" Width="40" TextAlignment="Right" Margin="0,0,15,0"/>
+                <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" Margin="5,0"/>
+                <TextBlock Text="Подсчёт:" Margin="5,0"/>
+                <ComboBox x:Name="StatsModeCombo" Width="150" SelectedIndex="0" SelectionChanged="StatsModeCombo_SelectionChanged">
+                    <ComboBoxItem Content="Весь документ"/>
+                    <ComboBoxItem Content="Только выделенный текст"/>
+                </ComboBox>
+                <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" Margin="5,0"/>
+                <CheckBox x:Name="AutoUpdateStatsCheck" Content="Обновлять автоматически" IsChecked="True" Margin="5,0"
+                          Checked="AutoUpdateStats_Changed" Unchecked="AutoUpdateStats_Changed"/>
+                <Button x:Name="UpdateStatsBtn" Content="Обновить" Width="80" Margin="5,0" Click="UpdateStatsBtn_Click" Visibility="Collapsed"/>
+            </StackPanel>
+        </Border>
+
+        <Border x:Name="FindPanel" DockPanel.Dock="Top" Background="#EEEEEE" Padding="8" Visibility="Collapsed">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Найти:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                <TextBox x:Name="FindTextBox" Width="180" Margin="0,0,10,0"/>
+                <Button Content="Найти далее" Width="90" Margin="0,0,10,0" Click="FindNext_Click"/>
+                <TextBlock x:Name="ReplaceTextBlock" Text="Заменить:" VerticalAlignment="Center" Margin="0,0,5,0" Visibility="Collapsed"/>
+                <TextBox x:Name="ReplaceTextBox" Width="180" Margin="0,0,10,0" Visibility="Collapsed"/>
+                <Button x:Name="ReplaceButton" Content="Заменить" Width="80" Margin="0,0,10,0" Visibility="Collapsed" Click="Replace_Click"/>
+                <Button x:Name="ReplaceAllButton" Content="Заменить всё" Width="100" Margin="0,0,10,0" Visibility="Collapsed" Click="ReplaceAll_Click"/>
+                <CheckBox x:Name="CaseSensitiveCheckBox" Content="Учитывать регистр" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                <Button Content="Закрыть" Width="70" Click="CloseFindPanel_Click"/>
+            </StackPanel>
+        </Border>
+
+        <TextBox x:Name="Editor" 
+                 AcceptsReturn="True" 
+                 AcceptsTab="True" 
+                 VerticalScrollBarVisibility="Auto" 
+                 HorizontalScrollBarVisibility="Auto" 
+                 TextWrapping="Wrap" 
+                 FontFamily="Consolas" 
+                 FontSize="16" 
+                 Padding="8" 
+                 TextChanged="Editor_TextChanged" 
+                 SelectionChanged="Editor_SelectionChanged"/>
+
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem>
+                <TextBox x:Name="LineColumnText" Text="Строка: 1, Столбец: 1" BorderThickness="0" Background="Transparent"/>
+            </StatusBarItem>
+            <Separator/>
+            <StatusBarItem>
+                <TextBox x:Name="CharCountText" Text="Символов: 0" BorderThickness="0" Background="Transparent"/>
+            </StatusBarItem>
+            <Separator/>
+            <StatusBarItem>
+                <TextBox x:Name="FilePathText" Text="Новый файл" BorderThickness="0" Background="Transparent"/>
+            </StatusBarItem>
+            <Separator/>
+            <StatusBarItem>
+                <TextBlock x:Name="QuickStatsText" Text="Слов: 0 | Строк: 0" Margin="5,0" VerticalAlignment="Center"/>
+            </StatusBarItem>
+        </StatusBar>
+    </DockPanel>
+</Window>

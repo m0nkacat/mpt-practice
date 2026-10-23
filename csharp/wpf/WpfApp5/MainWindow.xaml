@@ -1,0 +1,103 @@
+﻿<Window x:Class="WpfApp5.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp5"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <TextBox Text="Работа с фигурами"
+                     FontSize="40"
+                     HorizontalAlignment="Center"
+                     FontWeight="Black"/>
+        </StackPanel>
+
+        <UniformGrid Columns="3" Rows="2" Margin="0,55,0,27" Grid.RowSpan="2">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Rectangle x:Name="Rectangle1" Width="200" Height="100"
+                           Fill="DodgerBlue"
+                           Stroke="Black"
+                           StrokeThickness="5"
+                           MouseDown="ShapeClick"/>
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Rectangle x:Name="Square1" Width="100" Height="100"
+                           Fill="DodgerBlue"
+                           Stroke="Black"
+                           StrokeThickness="5"
+                           MouseDown="ShapeClick"/>
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Ellipse x:Name="Ellipse1" Width="200" Height="100"
+                           Fill="DodgerBlue"
+                           Stroke="Black"
+                           StrokeThickness="5"
+                           MouseDown="ShapeClick"/>
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Ellipse x:Name="Circle1" Width="100" Height="100"
+                           Fill="DodgerBlue"
+                           Stroke="Black"
+                           StrokeThickness="5"
+                           MouseDown="ShapeClick"/>
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Border x:Name="RoundRectangle1" Width="200" Height="100"
+                           Background="DodgerBlue"
+                           BorderBrush="Black"
+                           BorderThickness="5"
+                           CornerRadius="10"
+                           MouseDown="ShapeClick"/>
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Border x:Name="RoundSquare1" Width="100" Height="100"
+                           Background="DodgerBlue"
+                           BorderBrush="Black"
+                           BorderThickness="5"
+                           CornerRadius="10"
+                           MouseDown="ShapeClick"/>
+            </StackPanel>
+        </UniformGrid>
+
+        <WrapPanel Grid.Row="2" HorizontalAlignment="Center">
+            <Button Background="Cyan" Width="60" Height="60" Margin="5"
+            PreviewMouseLeftButtonDown="LeftColor"
+            PreviewMouseRightButtonDown="RightColor"/>
+            <Button Background="Red" Width="60" Height="60" Margin="5"
+            PreviewMouseLeftButtonDown="LeftColor"
+            PreviewMouseRightButtonDown="RightColor"/>
+            <Button Background="Yellow" Width="60" Height="60" Margin="5"
+            PreviewMouseLeftButtonDown="LeftColor"
+            PreviewMouseRightButtonDown="RightColor"/>
+            <Button Background="Gray" Width="60" Height="60" Margin="5"
+            PreviewMouseLeftButtonDown="LeftColor"
+            PreviewMouseRightButtonDown="RightColor"/>
+            <Button Background="Green" Width="60" Height="60" Margin="5"
+            PreviewMouseLeftButtonDown="LeftColor"
+            PreviewMouseRightButtonDown="RightColor"/>
+            <Button Background="Wheat" Width="60" Height="60" Margin="5"
+            PreviewMouseLeftButtonDown="LeftColor"
+            PreviewMouseRightButtonDown="RightColor"/>
+            <Button Background="Pink" Width="60" Height="60" Margin="5"
+            PreviewMouseLeftButtonDown="LeftColor"
+            PreviewMouseRightButtonDown="RightColor"/>
+            <Button Content="Скрыть/Показать" Width="80" Height="60" Margin="5"
+            Click="ToggleVisibility" Background="LightGray"/>
+        </WrapPanel>
+
+    </Grid>
+</Window>

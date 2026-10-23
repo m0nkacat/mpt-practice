@@ -1,0 +1,173 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #12122a;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: white;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #f9a825;
+    text-shadow: 0 0 15px rgba(249,168,37,0.5);
+}
+
+header h2 {
+    color: #aaa;
+    font-weight: 400;
+}
+
+.desc {
+    text-align: center;
+    color: #999;
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.form-row input {
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
+    background: #1e1e3f;
+    color: white;
+    font-size: 14px;
+    outline: none;
+    width: 280px;
+}
+
+.form-row input::placeholder {
+    color: #666;
+}
+
+#addBtn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    color: #000;
+    background: #f9a825;
+    transition: background 0.2s;
+}
+
+#addBtn:hover {
+    background: #e08e00;
+}
+
+.filter-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.filter-row input {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 2px solid #f9a825;
+    background: #12122a;
+    color: white;
+    width: 300px;
+    text-align: center;
+    outline: none;
+}
+
+.filter-row input::placeholder {
+    color: #555;
+}
+
+.counter-row {
+    text-align: center;
+    font-weight: bold;
+    color: #f9a825;
+    margin: 15px 0;
+    font-size: 18px;
+}
+
+.notification {
+    background: #22223b;
+    border: 1px solid #f9a825;
+    padding: 12px;
+    text-align: center;
+    border-radius: 8px;
+    display: none;
+    margin: 0 auto 15px;
+    max-width: 400px;
+    color: white;
+}
+
+.board {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.column {
+    background: #1b1b3d;
+    border: 2px solid #2e2e5a;
+    border-radius: 12px;
+    width: 230px;
+    min-height: 400px;
+    padding: 12px;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+
+.column.drag-over {
+    border-color: #f9a825;
+    background: #2a2a5a;
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(249,168,37,0.3);
+}
+
+.column h3 {
+    text-align: center;
+    color: #f9a825;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-size: 15px;
+    letter-spacing: 1px;
+    border-bottom: 1px dashed #f9a825;
+    padding-bottom: 6px;
+}
+
+.card {
+    background: #26264f;
+    border-left: 4px solid #f9a825;
+    border-radius: 6px;
+    padding: 10px;
+    margin-bottom: 8px;
+    color: white;
+    cursor: grab;
+    transition: opacity 0.2s, transform 0.1s;
+    word-break: break-word;
+    font-size: 14px;
+}
+
+.card:active {
+    cursor: grabbing;
+}
+
+.card.dragging {
+    opacity: 0.4;
+    transform: rotate(2deg);
+}

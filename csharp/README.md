@@ -32,6 +32,11 @@
 
 ## wpf/
 
+<p align="center">
+  <img src="wpf/WpfApp7/screenshots/notepad.png" height="280" alt="Блокнот (WpfApp7)">
+  <img src="wpf/CalcWpf/screenshots/calc.png" height="280" alt="Калькулятор (CalcWpf)">
+</p>
+
 | Проект | Что сделано |
 |---|---|
 | `WpfApp1` | Обработчики кнопок: смена заголовка и фона окна, включение и отключение кнопок, изменение шрифта и цвета, скрытие элемента |

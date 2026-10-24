@@ -3,6 +3,8 @@
 HTML, CSS и чистый JavaScript · *HTML, CSS and vanilla JavaScript*
 
 ### pr1js: доска статусов задач
+
+![Доска задач](pr1js/screenshots/board.png)
 - Канбан-доска с 4 колонками-статусами
 - Добавление задачи, перетаскивание карточек между колонками (HTML5 drag-and-drop), фильтрация
 - Всплывающие уведомления
@@ -10,6 +12,10 @@ HTML, CSS и чистый JavaScript · *HTML, CSS and vanilla JavaScript*
 - Файлы: `index.html`, `script.js`, `style.css`
 
 ### moy_twitter: «Информационный пузырь»
+
+| Лента · *Feed* | Сравнение · *Comparison* |
+|---|---|
+| ![Лента](moy_twitter/screenshots/feed.png) | ![Сравнение](moy_twitter/screenshots/compare.png) |
 - Лента постов с тегами, лайками и комментариями
 - Регистрация с выбором интересов и вход. Пользователи и посты хранятся в `localStorage`
 - Рекомендации: лайк повышает вес тегов поста в интересах пользователя, снятие лайка понижает. Лента строится по самым сильным тегам

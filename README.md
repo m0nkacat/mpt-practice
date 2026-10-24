@@ -37,6 +37,7 @@
 | `python/weather_api` | Погода через OpenWeather API с обработкой ошибок |
 | [short-higurashi-whentheycry-ch1](https://github.com/sdformeky/short-higurashi-whentheycry-ch1) | Командная практика: текстовая игра по Higurashi с музыкой, инвентарём и мини-играми |
 | **[Dart](dart)** | |
+| `dart/basics` | ПР1–ПР4: калькулятор, ведомость оценок на Map, строки и Unicode, ООП (дженерики, enum, перегрузка операторов, наследование) |
 | `dart/qa_app2` | Q&A в консоли: бинарный формат хранения, бэкап, логирование в изоляте, отчёт |
 | `dart/dart_bd` | Q&A на SQLite: слои domain/data/cli, репозитории, валидаторы, тесты |
 | **[Web](web)** | |
@@ -89,6 +90,7 @@ College coursework. Each subject folder has its own README with details on every
 | `python/weather_api` | Weather via OpenWeather API with error handling |
 | [short-higurashi-whentheycry-ch1](https://github.com/sdformeky/short-higurashi-whentheycry-ch1) | Team assignment: Higurashi-based text game with music, inventory and mini-games |
 | **[Dart](dart)** | |
+| `dart/basics` | PR1–PR4: calculator, grade book on maps, strings and Unicode, OOP (generics, enums, operator overloading, inheritance) |
 | `dart/qa_app2` | Console Q&A: binary storage format, backup, isolate-based logging, report |
 | `dart/dart_bd` | Q&A on SQLite: domain / data / cli layers, repositories, validators, tests |
 | **[Web](web)** | |

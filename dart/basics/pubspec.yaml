@@ -1,0 +1,9 @@
+name: dart_basics
+description: Dart coursework, PR1-PR4.
+publish_to: none
+
+environment:
+  sdk: ^3.0.0
+
+dependencies:
+  characters: ^1.3.0
